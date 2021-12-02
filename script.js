@@ -1,12 +1,29 @@
-const numero =Number(prompt('Digite um número:'));
-const numeroTitulo = document.getElementById('numero-titulo');
-const texto =document.getElementById('texto');
+function meuEscopo(){
+    const form =document.querySelector('.form');// o . é usado para chamar uma class
+    const resultado =document.querySelector('.resultado');
 
-numeroTitulo.innerHTML =numero;
-texto.innerHTML +=`<p>Seu número mais 2 é: ${numero +2}</p>`;
-texto.innerHTML +=`<p>Raiz quadrada: ${numero **0.5 }</p>`;
-texto.innerHTML +=`<p>${numero} é inteiro:${Number.isInteger(numero)}</p>`;
-texto.innerHTML +=`<p>é NaN: ${Number.isNaN(numero)}</p>`;
-texto.innerHTML +=`<p>Arredondando para baixo:${Math.floor(numero)}</p>`;
-texto.innerHTML +=`<p>Arredondando para cima:${Math.ceil(numero)}</p>`;
-texto.innerHTML +=`<p>Com duas casas decimais: ${numero.toFixed(2)}</p>`;
+    const pessoas =[];
+
+    function recebeEventoForm (evento){
+        evento.preventDefault();
+
+        const nome =form.querySelector('.nome');
+        const sobrenome =form.querySelector('.sobrenome');
+        const peso =form.querySelector('.peso');
+        const altura =form.querySelector('.altura');
+
+        pessoas.push({
+            nome:nome.value,
+            sobrenome:sobrenome.value,
+            peso:peso.value,
+            altura:altura.value           
+        });        
+    
+    console.log(pessoas);
+
+    resultado.innerHTML += `<p>${nome.value} ${sobrenome.value}` +
+    `${peso.value} ${altura.value}</p>`;
+    }
+    form.addEventListener('submit', recebeEventoForm);    
+}
+meuEscopo();

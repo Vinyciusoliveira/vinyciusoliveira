@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*primeiro lorem*/
+.pai h1 + p{
+    color: red;
+}
+
+/*segundo lorem
+[meu-atributo="A"]{
+    color:blue;
+}
+*/
